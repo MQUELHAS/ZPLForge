@@ -91,7 +91,7 @@ namespace ZPLForge.Configuration
             }
             public static class DataMatrix
             {
-                public static DataMatrixErrorCorrection ErrorCorrection = DataMatrixErrorCorrection.ECC_0;
+                public static DataMatrixErrorCorrection ErrorCorrection = DataMatrixErrorCorrection.ECC_200;
                 public static DataMatrixFormat Format = DataMatrixFormat.ISO256;
                 public static char EscapeCharacter = '~';
                 public static DataMatrixAspectRatio AspectRatio = DataMatrixAspectRatio.Square;

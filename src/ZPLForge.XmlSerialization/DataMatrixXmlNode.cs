@@ -23,33 +23,63 @@ namespace ZPLForge.XmlSerialization
         [XmlElement]
         public string Content { get; set; }
 
-        [XmlElement("DimensionalHeight")]
-        [EditorBrowsable(EditorBrowsableState.Never)]
+        [XmlElement]
         public int DimensionalHeight { get; set; }
 
-        [XmlElement("ErrorCorrection")]
-        [EditorBrowsable(EditorBrowsableState.Never)]
+        [XmlElement]
         public DataMatrixErrorCorrection ErrorCorrection { get; set; }
-        
-        [XmlElement("Format")]
-        [EditorBrowsable(EditorBrowsableState.Never)]
+
+        [XmlElement]
         public DataMatrixFormat Format { get; set; }
-        
-        [XmlElement("EscapeCharacter")]
-        [EditorBrowsable(EditorBrowsableState.Never)]
+
+        [XmlElement]
         public char EscapeCharacter { get; set; }
-        
-        [XmlElement("AspectRatio")]
-        [EditorBrowsable(EditorBrowsableState.Never)]
+
+        [XmlElement]
         public DataMatrixAspectRatio AspectRatio { get; set; }
-        
-        [XmlElement("ColumnsToEncode")]
-        [EditorBrowsable(EditorBrowsableState.Never)]
+
+        [XmlElement]
         public int ColumnsToEncode { get; set; }
-        
-        [XmlElement("RowsToEndode")]
-        [EditorBrowsable(EditorBrowsableState.Never)]
+
+        [XmlElement]
         public int RowsToEndode { get; set; }
 
+
+        #region Should?
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool ShouldSerializeDimensionalHeight() =>
+            SerializeDefaults
+            || !DimensionalHeight.Equals(0);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool ShouldSerializeColumnsToEncode() =>
+            SerializeDefaults
+            || !ColumnsToEncode.Equals(0);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool ShouldSerializeRowsToEndode() =>
+            SerializeDefaults
+            || !RowsToEndode.Equals(0);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool ShouldSerializeAspectRatio() =>
+            SerializeDefaults
+            || !AspectRatio.Equals(ZPLForgeDefaults.Elements.DataMatrix.AspectRatio);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool ShouldSerializeFormat() =>
+            SerializeDefaults
+            || !Format.Equals(ZPLForgeDefaults.Elements.DataMatrix.Format);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool ShouldSerializeErrorCorrection() =>
+            SerializeDefaults
+            || !ErrorCorrection.Equals(ZPLForgeDefaults.Elements.DataMatrix.ErrorCorrection);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool ShouldSerializeEscapeCharacter() =>
+            SerializeDefaults
+            || !EscapeCharacter.Equals(ZPLForgeDefaults.Elements.DataMatrix.EscapeCharacter);
+        #endregion
     }
 }
